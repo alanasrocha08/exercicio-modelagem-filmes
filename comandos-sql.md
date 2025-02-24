@@ -64,4 +64,14 @@ ALTER TABLE fabricantes RENAME TO fornecedores;
 ALTER TABLE fornecedores RENAME TO fabricantes;
 ```
 
+### Remomear coluna 
+
+```sql
+ALTER TABLE produtos CHANGE descricao detalhes TEXT(500) NULL;
+ALTER TABLE produtos CHANGE descricao descricao TEXT(500) NULL;
+```
+
+
+
+
 
