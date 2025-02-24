@@ -28,7 +28,7 @@ CREATE TABLE filme(
     nome VARCHAR(50) NOT NULL, 
     titulo TEXT(50) NOT NULL,
     data_de_lancamento DATE NOT NULL,
-    genero_id INT NOT NULL -- será chave estrangeira
+    generos_id INT NOT NULL -- será chave estrangeira
 );
 ```
 
@@ -38,7 +38,7 @@ CREATE TABLE filme(
 CREATE TABLE detalhes_do_filme(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     id_filme INT NOT NULL, 
-    duracao_minutos INT NOT NULL UNIQUE INDEX,
+    duracao_minutos INT NOT NULL,
     sinopse TEXT NOT NULL,
     bilheteria DECIMAL(15,2) NULL, 
     orcamento DECIMAL(15,2) NULL
@@ -50,11 +50,11 @@ CREATE TABLE detalhes_do_filme(
 ### Criar relacionamento entre as tabelas e configurar a chave estrangeira
 
 ```sql
-ALTER TABLE produtos
-    --Adicionando uma restrição indicando o nome do relacionamento
-    ADD CONSTRAINT fk_produtos_fabricantes
-
-    -- Criando a chave-estrangeira (fabricante_id) que 
-    --aponta para a chave-primária (id) de OUTRA TABELA (fabricantes)
-    FOREIGN KEY (fabricante_id) REFERENCES fabricantes(id);
+ALTER TABLE filmes
+    ADD CONSTRAINT fk_generos_filme
+    FOREIGN KEY (generos_id) REFERENCES generos(id);
 ```
+
+ALTER TABLE detalhes_do_filme
+    ADD CONSTRAINT fk_detalhes_filme
+    FOREIGN KEY (id_filme) REFERENCES filme(id);
