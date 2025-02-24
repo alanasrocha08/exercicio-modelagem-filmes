@@ -6,4 +6,6 @@ Neste arquivo está a referência de comando visando a estruturação do banco d
 
 ### Criar bande de dados 
 
-CREATE DATABASE vendas CHARACTER SET utf8mb4
+''' sql
+CREATE DATABASE vendas CHARACTER SET utf8mb4;
+'''
