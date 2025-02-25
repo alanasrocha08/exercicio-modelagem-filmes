@@ -1,4 +1,4 @@
-# Exercício - modelagem física
+# Exercício de SQL - modelagem física
 
 ## catálogos de filmes 
 
@@ -37,7 +37,7 @@ CREATE TABLE filme(
 ```sql
 CREATE TABLE detalhes_do_filme(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    id_filme INT NOT NULL, 
+    filme_id INT NOT NULL, 
     duracao_minutos INT NOT NULL,
     sinopse TEXT NOT NULL,
     bilheteria DECIMAL(15,2) NULL, 
@@ -54,7 +54,8 @@ ALTER TABLE filmes
     ADD CONSTRAINT fk_generos_filme
     FOREIGN KEY (generos_id) REFERENCES generos(id);
 ```
-
+```sql
 ALTER TABLE detalhes_do_filme
     ADD CONSTRAINT fk_detalhes_filme
-    FOREIGN KEY (id_filme) REFERENCES filme(id);
+    FOREIGN KEY (filme_id) REFERENCES filme(id);`
+```
